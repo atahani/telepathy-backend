@@ -1,0 +1,493 @@
+@import "jquery.fullPage";
+@import "normalize";
+@import "skeleton";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+@import "fontello";
+
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#cboxWrapper {
+  max-width: none;
+}
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+#cboxContent {
+  position: relative;
+}
+
+#cboxLoadedContent {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle {
+  margin: 0;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+}
+
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+  max-width: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/*
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay {
+  background: #55acee;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+//the color that show around of dialog box
+#colorbox {
+  outline: 0;
+}
+
+#cboxTopLeft {
+  width: 25px;
+  height: 25px;
+  background: url(../images/png/border1.png) no-repeat 0 0;
+}
+
+#cboxTopCenter {
+  height: 25px;
+  background: url(../images/png/border1.png) repeat-x 0 -50px;
+}
+
+#cboxTopRight {
+  width: 25px;
+  height: 25px;
+  background: url(../images/png/border1.png) no-repeat -25px 0;
+}
+
+#cboxBottomLeft {
+  width: 25px;
+  height: 25px;
+  background: url(../images/png/border1.png) no-repeat 0 -25px;
+}
+
+#cboxBottomCenter {
+  height: 25px;
+  background: url(../images/png/border1.png) repeat-x 0 -75px;
+}
+
+#cboxBottomRight {
+  width: 25px;
+  height: 25px;
+  background: url(../images/png/border1.png) no-repeat -25px -25px;
+}
+
+#cboxMiddleLeft {
+  width: 25px;
+  background: url(../images/png/border2.png) repeat-y 0 0;
+}
+
+#cboxMiddleRight {
+  width: 25px;
+  background: url(../images/png/border2.png) repeat-y -25px 0;
+}
+
+#cboxContent {
+  background: #fff;
+  overflow: hidden;
+}
+
+.cboxIframe {
+  background: #fff;
+}
+
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+
+#cboxLoadedContent {
+  margin-bottom: 20px;
+}
+
+#cboxTitle {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: #999;
+}
+
+#cboxCurrent {
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  color: #999;
+}
+
+#cboxLoadingOverlay {
+  background: #fff url(../images/png/loading.gif) no-repeat 5px 5px;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  width: auto;
+  background: none;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+  outline: 0;
+}
+
+#cboxSlideshow {
+  position: absolute;
+  bottom: 0px;
+  right: 42px;
+  color: #8BC34A;
+}
+
+#cboxPrevious {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: #8BC34A;
+}
+
+#cboxNext {
+  position: absolute;
+  bottom: 0px;
+  left: 63px;
+  color: #8BC34A;
+}
+
+#cboxClose {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  color: #8BC34A;
+  font-size: 20px;
+}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+}
+
+/* overwrite full page styles */
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  background: white;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.hide_section {
+  display: none;
+}
+
+.section {
+  min-height: 800px;
+}
+
+.seven.columns {
+  text-align: center;
+}
+
+.d_area {
+  margin-top: 55%;
+  text-align: center;
+
+  #telepathy_logo {
+	width: 160px;
+	height: 160px;
+	padding-bottom: 30px;
+  }
+  h2 {
+	font-weight: bold;
+	padding-bottom: 20px;
+  }
+
+  .dl_btn {
+	width: 170px;
+	margin: 5px;
+  }
+}
+
+.navigate_down{
+  display: block;
+  margin-top: 10px;
+  a {
+	cursor: pointer;
+	margin-top: 5px;
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+	h5 {
+	  margin-bottom: 0px;
+	}
+	.icon-down {
+	  font-size: 25px;
+	}
+  }
+}
+
+#nexus6p {
+  width: 440px;
+}
+
+.video {
+  text-align: center;
+  h3 {
+	padding-bottom: 20px;
+  }
+  iframe {
+	height: 360px;
+	width: 640px;
+  }
+  .nav{
+	display: none;
+	float: left;
+	padding-top: 20px;
+  }
+}
+
+.footer {
+  height: 100%;
+  color: #7F4D46;
+
+  .person {
+	margin-bottom: 15px;
+	img {
+	  float: left;
+	  max-width: 100px;
+	  border-radius: 100%;
+	  margin-right: 10px;
+	  margin-bottom: 10px;
+	  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24);
+	  -moz-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24);
+	  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	.information {
+	  display: inline-block;
+	  h6 {
+		font-weight: bold;
+		margin-bottom: 5px;
+		a[class^="icon-"] {
+		  text-decoration: none;
+		  margin-left: 5px;
+		}
+		.icon-twitter {
+		  color: #55acee;
+		}
+	  }
+	}
+  }
+
+  .links {
+	width: 100%;
+	overflow: hidden;
+	padding-top: 45px;
+
+	ul {
+	  list-style: none;
+	  position: relative;
+	  float: left;
+	  display: block;
+	  left: 50%;
+	  li {
+		text-align: center;
+		position: relative;
+		float: left;
+		display: block;
+		right: 50%;
+		margin-right: 25px;
+	  }
+	  a {
+		color: #55acee;
+		text-decoration: none;
+		&:focus{
+		  outline: none;
+		}
+		span {
+		  font-size: 30px;
+		}
+	  }
+	}
+  }
+}
+
+.image_container {
+  overflow: hidden;
+
+  .fixed_in_bottom {
+	position: absolute;
+	width: 100%;
+	background: url("../images/svg/footer_image.svg") no-repeat;
+	-webkit-background-size: auto 400px;
+	background-size: auto 400px;
+	background-position: center bottom;
+	bottom: 0px;
+	height: 400px;
+  }
+}
+
+#privacy_policy {
+  color: #212121;
+}
+
+@media (max-width: 920px) {
+  #fp-nav {
+	display: none;
+  }
+  .video .nav{
+	display: block;
+  }
+  .d_area {
+	margin-top: 85%;
+	#telepathy_logo {
+	  width: 90px;
+	  height: 90px;
+	}
+	h2 {
+	  font-size: 3.0rem;
+	  padding-bottom: 10px;
+	}
+  }
+
+  .image_container .fixed_in_bottom {
+	background-size: auto 350px;
+	height: 350px;
+  }
+}
+
+@media (max-width: 730px) {
+  #nexus6p {
+	width: 340px;
+  }
+
+  .image_container .fixed_in_bottom {
+	background-size: auto 300px;
+	height: 300px;
+  }
+
+}
+
+@media(max-width: 640px) {
+  .video iframe {
+	width: 500px;
+	height: 281px;
+  }
+
+  .image_container .fixed_in_bottom {
+	background-size: auto 250px;
+	height: 250px;
+  }
+}
+
+@media (max-width: 550px) {
+  #nexus6p {
+	width: 100%;
+	max-width: 100%;
+  }
+
+  .d_area {
+	margin: 0 auto;
+
+	#telepathy_logo {
+	  width: 60px;
+	  height: 60px;
+	  padding-bottom: 15px;
+	}
+	h2 {
+	  font-size: 2.5rem;
+	  padding-bottom: 5px;
+	}
+	.dl_btn {
+	  width: 130px;
+	}
+  }
+
+  .video iframe {
+	width: 270px;
+	height: 151px;
+  }
+  .footer .links {
+	padding-top: 0px;
+  }
+
+  .image_container .fixed_in_bottom {
+	background-size: auto 190px;
+	height: 190px;
+  }
+}
+
+
+

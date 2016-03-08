@@ -1,0 +1,23 @@
+{
+  "routes":[
+	{
+	  "route":"mg",
+	  "dir":"images/mg",
+	  "cache_dir":"cache/mg",
+	  "default":true
+
+	},
+	{
+	  "route":"profile",
+	  "dir":"images/image_profile",
+	  "cache_dir":"cache/image_profile",
+	  "default":false
+	},
+	{
+	  "route":"cli",
+	  "dir":"images/client_app",
+	  "cache_dir":"cache/client_app",
+	  "default":false
+	}
+  ]
+}

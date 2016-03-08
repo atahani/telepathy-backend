@@ -1,0 +1,15 @@
+{
+  "name": "fullpage.js",
+  "homepage": "https://github.com/alvarotrigo/fullPage.js",
+  "version": "2.7.4",
+  "_release": "2.7.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.7.4",
+    "commit": "e4bf30d84a97b2c3c6602bb905e4bc40b5113566"
+  },
+  "_source": "git://github.com/alvarotrigo/fullPage.js.git",
+  "_target": "~2.7.4",
+  "_originalSource": "fullpage.js",
+  "_direct": true
+}
